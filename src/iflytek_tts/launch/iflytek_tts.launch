@@ -1,0 +1,18 @@
+<!--
+  Description:
+    使用科大讯飞在线语音合成实现ROS下的在线语音合成功能.
+-->
+<launch>
+  <arg name="TTS_Topic" />
+
+  <node pkg="iflytek_tts" type="iflytek_tts_node" name="iflytek_tts_node" output="screen">
+    <param name="app_id" type="String" value="5d635026" />
+    
+    <!--speaker name= xiaowanzi,xiaoxin,vinn,xiaofeng or xiaoqi etc-->
+    <param name="speaker_name" type="String" value="xiaoqi" />
+    <param name="voice_speed" type="int" value="50" />
+
+    <param name="tts_topic" value="$(arg TTS_Topic)" />
+    <param name="greet_word" type="String" value="钢铁侠语音模块启动成功" />
+  </node>
+</launch>
